@@ -24,7 +24,18 @@ class Result
 
     public static string pangrams(string s)
     {
+    s = s.ToLower();
 
+    HashSet<char> letters = new HashSet<char>();
+
+    foreach (char c in s)
+    {
+        if (c >= 'a' && c <= 'z') // Only track alphabet characters
+        {
+            letters.Add(c);
+        }
+    }
+    return (letters.Count == 26) ? "pangram" : "not pangram";
     }
 
 }
